@@ -4,6 +4,8 @@
 library("ggplot2")
 
 ```
+Make sure the `activity.csv` file is in your working directory.
+
 
 <br><br>
 ## Loading and preprocessing the data
