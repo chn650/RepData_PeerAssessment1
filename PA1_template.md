@@ -61,7 +61,8 @@ The mean total number of steps taken per day is `10766` and the median total num
 ```r
 average_steps <- tapply(activity$steps, activity$interval, mean, na.rm=TRUE)
 
-plot(average_steps, type="l", col="blue", main = "Average daily activity pattern", xlab= "Time", ylab="Average number of steps" )
+plot(average_steps, type="l", col="blue", main = "Average daily activity pattern", 
+     xlab= "Time", ylab="Average number of steps" )
 ```
 
 ![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
@@ -145,15 +146,16 @@ After filling in the missing values the mean remains the same, however the media
 #Create a new factor variable in the dataset with two levels  "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
 d$day <- as.factor(weekdays(d$date))
 
-levels(d$day)<- list(weekday = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday"), weekend = c("Sunday", "Saturday"))
+levels(d$day)<- list(weekday = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday"),
+                     weekend = c("Sunday", "Saturday"))
 ```
 
 
 ```r
 ggplot(data=d, aes(interval,steps)) + facet_grid(day~.) + 
-  stat_summary(fun.y=mean, col="blue", geom="line") +
-  xlab("Interval") + ylab("Average number of steps") +
-  ggtitle("Averaged steps across all weekday days or weekend days")
+        stat_summary(fun.y=mean, col="blue", geom="line") +
+        xlab("Interval") + ylab("Average number of steps") +
+        ggtitle("Averaged steps across all weekday days or weekend days")
 ```
 
 ![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
