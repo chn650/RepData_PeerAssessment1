@@ -162,6 +162,7 @@ ggplot(data=d, aes(interval,steps)) + facet_grid(day~.) +
 
 _Figure 4: Panel plot containing a time series plot of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis)._
 
+
 <br><br>
 ## References
 * H. Wickham. ggplot2: elegant graphics for data analysis. Springer New York, 2009.
