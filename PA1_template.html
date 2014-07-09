@@ -263,11 +263,14 @@ plot(average_steps, type=&quot;l&quot;, col=&quot;blue&quot;, main = &quot;Avera
 
 <p>The total number of missing values in the dataset is <code>2304</code>.</p>
 
-<p><strong>Strategy for filling in all of the missing values in the dataset:</strong>
-Create an extra column that contains the averge steps per 5 min interval, if the number of steps is <code>NA</code> replace the value with the value in the averege_steps columns</p>
+<p><strong>Strategy for filling in all of the missing values in the dataset:</strong></p>
 
-<pre><code class="r">#Create a new dataset that is equal to the original dataset 
-#but with the missing data filled in.
+<ul>
+<li>Create an extra column that contains the averge steps per 5 min interval</li>
+<li>If the number of steps is <code>NA</code> replace the value with the value in the averege_steps columns</li>
+</ul>
+
+<pre><code class="r">#Create a new dataset that is equal to the original dataset but with the missing data filled in.
 d&lt;-activity
 d$average_steps &lt;- average_steps
 d[is.na(d),]$steps &lt;- d[is.na(d),]$average_steps
@@ -302,7 +305,7 @@ hist(total_steps2, col=&quot;blue&quot;, main = &quot;Total number of steps take
 
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>
 
-<pre><code class="r">#Create a new factor variable in the dataset with two levels  &quot;weekday&quot; and &quot;weekend&quot; indicating whether a given date is a weekday or weekend day.
+<pre><code class="r">#Create a new factor variable in the dataset with two levels  &quot;weekday&quot; and &quot;weekend&quot; 
 d$day &lt;- as.factor(weekdays(d$date))
 
 levels(d$day)&lt;- list(weekday = c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;),

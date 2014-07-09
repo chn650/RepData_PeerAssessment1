@@ -68,11 +68,11 @@ sum(is.na(activity))
 The total number of missing values in the dataset is `2304`.
 
 **Strategy for filling in all of the missing values in the dataset:**
-Create an extra column that contains the averge steps per 5 min interval, if the number of steps is `NA` replace the value with the value in the averege_steps columns
+* Create an extra column that contains the averge steps per 5 min interval
+* If the number of steps is `NA` replace the value with the value in the averege_steps columns
 
 ```{r}
-#Create a new dataset that is equal to the original dataset 
-#but with the missing data filled in.
+#Create a new dataset that is equal to the original dataset but with the missing data filled in.
 d<-activity
 d$average_steps <- average_steps
 d[is.na(d),]$steps <- d[is.na(d),]$average_steps
@@ -98,7 +98,7 @@ After filling in the missing values the mean remains the same, however the media
 ## Are there differences in activity patterns between weekdays and weekends?
 
 ```{r}
-#Create a new factor variable in the dataset with two levels  "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
+#Create a new factor variable in the dataset with two levels  "weekday" and "weekend" 
 d$day <- as.factor(weekdays(d$date))
 
 levels(d$day)<- list(weekday = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday"),
