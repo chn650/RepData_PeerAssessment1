@@ -89,7 +89,7 @@ median(total_steps2)
 ```
 The mean total number of steps taken per day is `10766` and the median total number of steps taken per day is `10766`.
 
-After filling in the missing values the mean remains the same, however the median is now identical to the mean. ????????????
+After filling in the missing values the mean remains the same, however the median is now identical to the mean. 
 
 <br><br>
 ## Are there differences in activity patterns between weekdays and weekends?
